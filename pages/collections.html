@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="vi" data-base="../">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bộ Sưu Tập Trang Sức Ngọc Phỉ Thúy | Nhẫn + Dây Chuyền + Bông Tai | Jadeite Store</title>
+  <meta name="description" content="Bộ sưu tập trang sức ngọc phỉ thúy trọn bộ: nhẫn, dây chuyền, bông tai, lắc tay được lựa chọn từ cùng một lô ngọc. Đảm bảo đồng màu và đồng chuẩn chất lượng." />
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <style>
+    .coll-hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(212,175,55,0.1); border: 1px solid var(--border-gold); padding: 6px 16px; border-radius: 50px; font-size: 0.78rem; color: var(--gold); }
+    .coll-detail-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: start; }
+    .coll-detail-img  { border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border-gold); box-shadow: var(--shadow-gold); aspect-ratio: 4/3; }
+    .coll-detail-img img { width: 100%; height: 100%; object-fit: cover; }
+    .piece-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 20px 0; }
+    .piece-card {
+      background: var(--bg-secondary); border: 1px solid var(--border-jade);
+      border-radius: var(--radius-sm); padding: 16px 12px; text-align: center;
+      transition: var(--transition);
+    }
+    .piece-card:hover { border-color: var(--border-gold); }
+    .piece-card-icon { font-size: 1.8rem; margin-bottom: 6px; display: block; }
+    .piece-card-name { font-size: 0.8rem; color: var(--ivory); font-weight: 500; }
+    .coll-divider { border: none; border-top: 1px solid var(--border-jade); margin: 40px 0; }
+    .custom-order-box {
+      background: linear-gradient(135deg, rgba(9,64,37,0.4), rgba(5,17,14,0.8));
+      border: 1px solid var(--border-gold); border-radius: var(--radius-lg); padding: 40px;
+      text-align: center; margin-top: 60px;
+    }
+    @media (max-width: 900px) { .coll-detail-grid { grid-template-columns: 1fr; } .piece-cards { grid-template-columns: repeat(3, 1fr); } }
+  </style>
+</head>
+<body>
+  <!-- page-hero -->
+  <div class="page-hero">
+    <div class="container">
+      <span class="section-label">Trang Sức Cao Cấp</span>
+      <h1>Bộ Sưu Tập <span class="gradient-text">Ngọc Phỉ Thúy</span></h1>
+      <div class="breadcrumb">
+        <a href="../index.html">Trang Chủ</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>Bộ Sưu Tập</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <section class="section-sm" style="background: var(--bg-secondary); border-bottom: 1px solid var(--border-jade);">
+    <div class="container" style="text-align:center;">
+      <p style="max-width:640px;margin:0 auto;font-size:0.95rem;">
+        Mỗi bộ sưu tập được lựa chọn từ <strong style="color:var(--gold)">cùng một lô ngọc</strong>, đảm bảo sự đồng màu sắc và chất lượng tuyệt đối. Khi đeo trọn bộ, vẻ đẹp của ngọc được nhân lên và tôn lên phong thái người đeo.
+      </p>
+    </div>
+  </section>
+
+  <!-- COLLECTIONS LIST -->
+  <section class="section">
+    <div class="container" id="collectionsList"></div>
+  </section>
+
+  <!-- CUSTOM ORDER -->
+  <section class="section-sm" style="background: var(--bg-secondary);">
+    <div class="container">
+      <div class="custom-order-box reveal">
+        <span class="section-label" style="justify-content:center;display:block;">Dịch Vụ Đặc Biệt</span>
+        <h2 style="margin-bottom:0.75rem;">Đặt Bộ Trang Sức <span class="gradient-text">Theo Yêu Cầu</span></h2>
+        <div class="divider divider-center"></div>
+        <p style="max-width:520px;margin:0 auto 28px;">Bạn muốn một bộ trang sức hoàn toàn cá nhân — theo màu sắc, kích thước, phong cách riêng? Chúng tôi hỗ trợ chế tác theo yêu cầu từ nguồn nguyên liệu ngọc thô.</p>
+        <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+          <a href="../pages/contact.html" class="btn btn-gold">📞 Liên Hệ Tư Vấn Ngay</a>
+          <a href="../pages/products.html" class="btn btn-outline-gold">💎 Chọn Sản Phẩm Lẻ</a>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:36px;max-width:600px;margin-left:auto;margin-right:auto;">
+          <div class="cert-card">
+            <div class="cert-icon">🎨</div>
+            <h4>Chọn Màu Ngọc</h4>
+            <p>Lục đế, tím lavender, trắng băng...</p>
+          </div>
+          <div class="cert-card">
+            <div class="cert-icon">⚖️</div>
+            <h4>Chọn Trọng Lượng</h4>
+            <p>Từ 5ct đến nguyên thạch lớn</p>
+          </div>
+          <div class="cert-card">
+            <div class="cert-icon">✍️</div>
+            <h4>Thiết Kế Riêng</h4>
+            <p>Cùng nghệ nhân phác thảo mẫu</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="../assets/js/main.js"></script>
+  <script>
+    renderNavbar(); renderFooter();
+
+    const PIECE_ICONS = { 'Nhẫn': '💍', 'Dây Chuyền': '📿', 'Bông Tai': '✨', 'Lắc Tay': '🔮', 'Vòng Tay': '⭕', 'Mặt Dây': '🏮' };
+
+    const html = JadeStore.COLLECTIONS.map((c, idx) => {
+      const isReverse = idx % 2 === 1;
+      const piecesHtml = c.pieces.map(p => `
+        <div class="piece-card">
+          <span class="piece-card-icon">${PIECE_ICONS[p] || '💎'}</span>
+          <div class="piece-card-name">${p}</div>
+        </div>`).join('');
+
+      const content = `
+        <div class="coll-detail-img shimmer-on-hover">
+          <img src="${c.img}" alt="${c.name}" loading="lazy"/>
+        </div>
+        <div>
+          <span class="section-label">${c.color} • ${c.loai}</span>
+          <h2 style="margin-bottom:0.5rem;">${c.name}</h2>
+          <div class="divider"></div>
+          <p style="margin-bottom:20px;">${c.desc}</p>
+          <div class="piece-cards">${piecesHtml}</div>
+          <div style="background:var(--bg-secondary);border:1px solid var(--border-jade);border-radius:var(--radius-sm);padding:16px;margin:16px 0;">
+            <div style="font-size:0.75rem;color:var(--ivory-dim);margin-bottom:4px;">Giá tham khảo (có thể thay đổi theo ngọc cụ thể)</div>
+            <div style="font-family:var(--font-display);font-size:1.4rem;color:var(--gold);">Liên hệ đặt mua</div>
+          </div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;">
+            <a href="../pages/contact.html" class="btn btn-gold">📞 Liên Hệ Đặt Bộ</a>
+            <a href="../pages/products.html" class="btn btn-outline-gold btn-sm">Xem Từng Sản Phẩm</a>
+          </div>
+        </div>`;
+
+      return `
+      <div class="coll-detail-grid reveal" style="${isReverse ? '' : ''}">
+        ${isReverse ? content.split('</div>\n        <div>')[1]+' </div>\n        <div>'+content.split('</div>\n        <div>')[0]+'</div>' : content}
+      </div>
+      <hr class="coll-divider"/>`;
+    }).join('');
+
+    document.getElementById('collectionsList').innerHTML = html;
+    initScrollReveal(); initTilt();
+  </script>
+</body>
+</html>

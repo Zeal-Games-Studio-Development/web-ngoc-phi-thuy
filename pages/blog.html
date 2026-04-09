@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="vi" data-base="../">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog Ngọc Phỉ Thúy | Kiến Thức, Phong Thủy, Định Giá — Jadeite Store</title>
+  <meta name="description" content="Blog kiến thức ngọc phỉ thúy: phân biệt ngọc thật giả, ý nghĩa phong thủy, cách chọn ngọc theo mệnh, định giá và hành trình ngọc từ Myanmar." />
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <style>
+    .blog-hero-tags { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+    .blog-hero-tag { padding: 5px 14px; border-radius: 50px; font-size: 0.72rem; border: 1px solid var(--border-gold); color: var(--gold); cursor: pointer; transition: var(--transition); }
+    .blog-hero-tag:hover, .blog-hero-tag.active { background: rgba(212,175,55,0.15); }
+    .blog-layout { display: grid; grid-template-columns: 1fr 300px; gap: 40px; align-items: start; }
+    .blog-sidebar { position: sticky; top: 100px; }
+    .sidebar-widget { background: var(--bg-card); border: 1px solid var(--border-jade); border-radius: var(--radius-md); padding: 22px; margin-bottom: 20px; }
+    .sidebar-widget h4 { font-size: 0.9rem; color: var(--ivory); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--border-jade); }
+    .recent-post { display: flex; gap: 12px; margin-bottom: 14px; align-items: flex-start; }
+    .recent-post-img { width: 60px; height: 48px; border-radius: 6px; overflow: hidden; flex-shrink: 0; }
+    .recent-post-img img { width: 100%; height: 100%; object-fit: cover; }
+    .recent-post-title { font-size: 0.78rem; color: var(--ivory); line-height: 1.4; }
+    .recent-post-date  { font-size: 0.68rem; color: var(--ivory-dim); margin-top: 4px; }
+    .tag-cloud { display: flex; gap: 8px; flex-wrap: wrap; }
+    .tag-pill { padding: 4px 12px; border-radius: 50px; font-size: 0.7rem; border: 1px solid var(--border-jade); color: var(--ivory-dim); transition: var(--transition); cursor: pointer; }
+    .tag-pill:hover { border-color: var(--gold); color: var(--gold); }
+    .featured-blog { position: relative; border-radius: var(--radius-lg); overflow: hidden; min-height: 360px; display: flex; align-items: flex-end; margin-bottom: 40px; border: 1px solid var(--border-gold); }
+    .featured-blog-bg { position: absolute; inset: 0; }
+    .featured-blog-bg img { width: 100%; height: 100%; object-fit: cover; }
+    .featured-blog-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(5,17,14,0.95) 30%, rgba(5,17,14,0.3)); }
+    .featured-blog-body { position: relative; z-index: 1; padding: 32px; }
+    @media (max-width: 900px) { .blog-layout { grid-template-columns: 1fr; } .blog-sidebar { position: static; } }
+  </style>
+</head>
+<body>
+
+  <div class="page-hero">
+    <div class="container">
+      <span class="section-label">Kiến Thức Chuyên Sâu</span>
+      <h1>Blog <span class="gradient-text">Ngọc Phỉ Thúy</span></h1>
+      <div class="breadcrumb">
+        <a href="../index.html">Trang Chủ</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>Blog</span>
+      </div>
+      <div class="blog-hero-tags">
+        <button class="blog-hero-tag active" data-tag="all">Tất Cả</button>
+        <button class="blog-hero-tag" data-tag="Kiến Thức">Kiến Thức</button>
+        <button class="blog-hero-tag" data-tag="Phong Thủy">Phong Thủy</button>
+        <button class="blog-hero-tag" data-tag="Câu Chuyện">Câu Chuyện</button>
+        <button class="blog-hero-tag" data-tag="Định Giá">Định Giá</button>
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <!-- FEATURED POST -->
+      <div class="featured-blog reveal">
+        <div class="featured-blog-bg">
+          <img src="../assets/images/story_bg.png" alt="Hành trình ngọc Myanmar" />
+        </div>
+        <div class="featured-blog-body">
+          <span class="badge badge-moi" style="margin-bottom:12px;display:inline-block;">📌 Bài Viết Nổi Bật</span>
+          <div class="blog-card-tag">Câu Chuyện</div>
+          <h2 style="color:var(--ivory);margin-bottom:10px;max-width:600px;">Hành Trình Ngọc Từ Mỏ Myanmar Đến Tay Bạn</h2>
+          <p style="max-width:500px;margin-bottom:20px;">Từ mỏ ngọc Hpakant Myanmar đến xưởng chế tác Vân Nam, hành trình của một viên ngọc phỉ thúy là câu chuyện dài về thiên nhiên và nghệ thuật...</p>
+          <a href="#" class="btn btn-gold btn-sm">Đọc Toàn Bộ Bài →</a>
+        </div>
+      </div>
+
+      <!-- LAYOUT -->
+      <div class="blog-layout">
+        <div>
+          <div class="grid-3" id="blogGrid" style="gap:24px;"></div>
+          <div class="pagination" style="margin-top:40px;" id="blogPagi"></div>
+        </div>
+        <aside class="blog-sidebar">
+          <div class="sidebar-widget">
+            <h4>🔍 Tìm Kiếm</h4>
+            <div class="filter-search" style="border-radius:var(--radius-sm);">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+              <input type="text" id="blogSearch" placeholder="Tìm bài viết..." />
+            </div>
+          </div>
+          <div class="sidebar-widget">
+            <h4>📌 Bài Viết Gần Đây</h4>
+            <div id="recentPosts"></div>
+          </div>
+          <div class="sidebar-widget">
+            <h4>🏷️ Chủ Đề</h4>
+            <div class="tag-cloud">
+              <span class="tag-pill">Ngọc Loại A</span>
+              <span class="tag-pill">Phong Thủy</span>
+              <span class="tag-pill">Myanmar</span>
+              <span class="tag-pill">Màu Sắc</span>
+              <span class="tag-pill">Kiểm Định</span>
+              <span class="tag-pill">Định Giá</span>
+              <span class="tag-pill">Nước Ngọc</span>
+              <span class="tag-pill">Vân Nam</span>
+              <span class="tag-pill">Loại B/C</span>
+              <span class="tag-pill">Hỏi Đáp</span>
+            </div>
+          </div>
+          <div class="sidebar-widget" style="background: linear-gradient(135deg, var(--jade-deep), var(--bg-card));">
+            <h4>📞 Cần Tư Vấn?</h4>
+            <p style="font-size:0.8rem;margin-bottom:16px;">Đội ngũ chuyên gia sẵn sàng giải đáp mọi thắc mắc về ngọc phỉ thúy của bạn.</p>
+            <a href="../pages/contact.html" class="btn btn-gold btn-sm" style="width:100%;justify-content:center;">Liên Hệ Ngay</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script src="../assets/js/main.js"></script>
+  <script>
+    renderNavbar(); renderFooter();
+
+    const PAGE_SIZE = 6;
+    let currentPage = 1, activeTag = 'all', searchQ = '';
+
+    function blogCard(b) {
+      return `
+      <div class="blog-card reveal">
+        <div class="blog-card-img"><img src="${b.img}" alt="${b.title}" loading="lazy"/></div>
+        <div class="blog-card-body">
+          <span class="blog-card-tag">${b.tag}</span>
+          <div class="blog-card-title">${b.title}</div>
+          <p class="blog-card-excerpt">${b.excerpt}</p>
+          <div class="blog-card-meta" style="margin-top:10px;border-top:1px solid var(--border-jade);padding-top:10px;">
+            <span>📅 ${b.date}</span><span>⏱ ${b.read}</span>
+          </div>
+          <a href="#" class="blog-card-link">Đọc tiếp →</a>
+        </div>
+      </div>`;
+    }
+
+    function render() {
+      let list = JadeStore.BLOGS.filter(b => {
+        if (activeTag !== 'all' && b.tag !== activeTag) return false;
+        if (searchQ && !b.title.toLowerCase().includes(searchQ) && !b.excerpt.toLowerCase().includes(searchQ)) return false;
+        return true;
+      });
+      const pages = Math.ceil(list.length / PAGE_SIZE);
+      const page  = list.slice((currentPage-1)*PAGE_SIZE, currentPage*PAGE_SIZE);
+      document.getElementById('blogGrid').innerHTML = page.map(blogCard).join('');
+      let pagi = '';
+      for (let i = 1; i <= pages; i++) pagi += `<button class="page-btn${i===currentPage?' active':''}" onclick="goPage(${i})">${i}</button>`;
+      document.getElementById('blogPagi').innerHTML = pages > 1 ? pagi : '';
+      initScrollReveal();
+    }
+
+    window.goPage = (p) => { currentPage = p; render(); };
+
+    // Recent posts
+    document.getElementById('recentPosts').innerHTML = JadeStore.BLOGS.slice(0,3).map(b => `
+      <div class="recent-post">
+        <div class="recent-post-img"><img src="${b.img}" alt="${b.title}" /></div>
+        <div><div class="recent-post-title">${b.title}</div><div class="recent-post-date">📅 ${b.date}</div></div>
+      </div>`).join('');
+
+    // Tag filter
+    document.querySelectorAll('.blog-hero-tag').forEach(t => {
+      t.addEventListener('click', () => {
+        document.querySelectorAll('.blog-hero-tag').forEach(x => x.classList.remove('active'));
+        t.classList.add('active'); activeTag = t.dataset.tag; currentPage = 1; render();
+      });
+    });
+    document.getElementById('blogSearch').addEventListener('input', e => { searchQ = e.target.value.toLowerCase(); currentPage = 1; render(); });
+
+    // URL tag
+    const urlTag = new URLSearchParams(location.search).get('tag');
+    if (urlTag) { activeTag = urlTag === 'phong-thuy' ? 'Phong Thủy' : urlTag === 'phan-biet' ? 'Kiến Thức' : urlTag === 'gia' ? 'Định Giá' : 'all'; }
+
+    render();
+  </script>
+</body>
+</html>

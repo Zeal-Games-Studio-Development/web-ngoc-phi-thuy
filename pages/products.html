@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="vi" data-base="../">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sản Phẩm Ngọc Phỉ Thúy | Vòng, Nhẫn, Dây Chuyền, Bông Tai — Jadeite Store</title>
+  <meta name="description" content="Toàn bộ sản phẩm ngọc phỉ thúy: vòng tay, mặt dây chuyền, nhẫn, bông tai, lắc tay. Tìm kiếm và lọc theo phân loại, màu sắc, mức giá. 100% Ngọc tự nhiên." />
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <style>
+    body { padding-top: 0; }
+    body { padding-top: 0; }
+  </style>
+</head>
+<body>
+  <!-- Injected: Cursor, Navbar -->
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="container">
+      <span class="section-label">Jadeite Fine Jewelry</span>
+      <h1>Sản Phẩm <span class="gradient-text">Ngọc Phỉ Thúy</span></h1>
+      <div class="breadcrumb">
+        <a href="../index.html">Trang Chủ</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>Sản Phẩm</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN PRODUCTS SECTION -->
+  <section class="section">
+    <div class="container">
+
+      <!-- TOP FILTER BAR -->
+      <div class="filter-bar">
+        <div class="filter-search">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <input type="text" id="searchInput" placeholder="Tìm kiếm ngọc..." />
+        </div>
+        <div class="filter-group">
+          <span class="filter-label">Sắp xếp:</span>
+          <select class="sort-select" id="sortSelect">
+            <option value="default">Mặc định</option>
+            <option value="name-asc">Tên A → Z</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <span class="filter-label">Danh mục:</span>
+          <select class="filter-select" id="catSelect">
+            <option value="all">Tất cả</option>
+            <option value="vong-tay">Vòng Tay</option>
+            <option value="mat-day">Mặt Dây Chuyền</option>
+            <option value="nhan">Nhẫn</option>
+            <option value="bong-tai">Bông Tai</option>
+            <option value="lac-tay">Lắc Tay</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- QUICK FILTER CHIPS -->
+      <div class="filter-chips" style="margin-bottom: 24px;">
+        <button class="chip active" data-filter="all">Tất Cả</button>
+        <button class="chip" data-filter="vong-tay">⭕ Vòng Tay</button>
+        <button class="chip" data-filter="mat-day">📿 Mặt Dây</button>
+        <button class="chip" data-filter="nhan">💍 Nhẫn</button>
+        <button class="chip" data-filter="bong-tai">✨ Bông Tai</button>
+        <button class="chip" data-filter="lac-tay">🔮 Lắc Tay</button>
+        <button class="chip" data-filter="loai-a">🏆 Loại A</button>
+        <button class="chip" data-filter="moi">🆕 Mới Về</button>
+        <button class="chip" data-filter="hot">🔥 Hot</button>
+      </div>
+
+      <!-- LAYOUT -->
+      <div>
+        <p class="products-count" id="productsCount">Đang tải sản phẩm...</p>
+        <div class="grid-products" id="productGrid"></div>
+        <div class="pagination" id="pagination"></div>
+      </div>
+    </div>
+  </section>
+
+  <script src="../assets/js/main.js"></script>
+  <script>
+    renderNavbar(); renderFooter();
+
+    const PAGE_SIZE = 9;
+    let currentPage = 1;
+    let filtered = [];
+
+    const searchInput = document.getElementById('searchInput');
+    const sortSelect  = document.getElementById('sortSelect');
+    const catSelect   = document.getElementById('catSelect');
+    const priceRange  = document.getElementById('priceRange');
+    const priceLabel  = document.getElementById('priceLabel');
+    const chips       = document.querySelectorAll('.chip');
+    let activeChip    = 'all';
+
+    function formatPrice(p) {
+      return '<span class="product-card-price">Liên hệ</span>';
+    }
+
+    function productCard(p) {
+      const badgeHtml = p.badges.map(b => `<span class="badge badge-${b}">${b==='loai-a'?'Loại A':b==='moi'?'Mới':'Hot'}</span>`).join('');
+      return `
+      <div class="product-card card shimmer-on-hover" data-tilt>
+        <div class="product-card-img">
+          <img src="${p.img}" alt="${p.name} ngọc phỉ thúy ${p.color}" loading="lazy"/>
+          <div class="product-card-badges">${badgeHtml}</div>
+          <div class="product-card-overlay">
+            <a href="../pages/contact.html" class="btn btn-jade btn-sm">📞 Liên Hệ Mua</a>
+          </div>
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-cat">${p.catLabel} • ${p.color} • ${p.loai}</div>
+          <div class="product-card-name">${p.name}</div>
+          <div class="product-card-desc">${p.desc}</div>
+          <div class="product-card-footer" style="justify-content:center;">
+            <a href="../pages/contact.html" style="text-decoration:none;">${formatPrice(p.price)}</a>
+          </div>
+        </div>
+      </div>`;
+    }
+
+    function applyFilters() {
+      const q      = searchInput.value.toLowerCase().trim();
+      const sort   = sortSelect.value;
+      const cat    = catSelect.value;
+      let list = JadeStore.PRODUCTS.filter(p => {
+        if (q && !p.name.toLowerCase().includes(q) && !p.desc.toLowerCase().includes(q) && !p.color.toLowerCase().includes(q)) return false;
+        if (cat !== 'all' && p.cat !== cat) return false;
+
+        // Chip filter
+        if (activeChip === 'loai-a' && !p.badges.includes('loai-a')) return false;
+        if (activeChip === 'moi'    && !p.badges.includes('moi'))    return false;
+        if (activeChip === 'hot'    && !p.badges.includes('hot'))    return false;
+        if (activeChip !== 'all' && !['loai-a','moi','hot'].includes(activeChip) && p.cat !== activeChip) return false;
+
+        return true;
+      });
+
+      // Sort
+      if (sort === 'name-asc')   list.sort((a,b) => a.name.localeCompare(b.name, 'vi'));
+
+      filtered = list;
+      currentPage = 1;
+      render();
+    }
+
+    function render() {
+      const start = (currentPage - 1) * PAGE_SIZE;
+      const page  = filtered.slice(start, start + PAGE_SIZE);
+      document.getElementById('productsCount').innerHTML = `Hiển thị <strong>${filtered.length}</strong> sản phẩm`;
+      document.getElementById('productGrid').innerHTML = page.length
+        ? page.map(productCard).join('')
+        : '<div style="grid-column:1/-1;text-align:center;padding:64px;color:var(--ivory-dim)">💎 Không tìm thấy sản phẩm phù hợp. Hãy thử thay đổi bộ lọc!</div>';
+
+      // Pagination
+      const pages = Math.ceil(filtered.length / PAGE_SIZE);
+      let pagi = '';
+      for (let i = 1; i <= pages; i++) pagi += `<button class="page-btn${i===currentPage?' active':''}" onclick="goPage(${i})">${i}</button>`;
+      document.getElementById('pagination').innerHTML = pages > 1 ? pagi : '';
+
+      initTilt();
+    }
+
+    window.goPage = (p) => { currentPage = p; render(); window.scrollTo({top: 400, behavior:'smooth'}); };
+
+    // Events
+    searchInput.addEventListener('input', applyFilters);
+    sortSelect.addEventListener('change', applyFilters);
+    catSelect.addEventListener('change', applyFilters);
+
+    chips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        chips.forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        activeChip = chip.dataset.filter;
+        catSelect.value = ['vong-tay','mat-day','nhan','bong-tai','lac-tay'].includes(activeChip) ? activeChip : 'all';
+        applyFilters();
+      });
+    });
+
+    document.getElementById('clearFilters') && document.getElementById('clearFilters').addEventListener('click', () => {
+      searchInput.value = ''; sortSelect.value = 'default'; catSelect.value = 'all';
+      activeChip = 'all'; chips.forEach(c => c.classList.toggle('active', c.dataset.filter==='all'));
+      applyFilters();
+    });
+
+    // Handle URL param
+    const urlCat = new URLSearchParams(location.search).get('cat');
+    if (urlCat) {
+      catSelect.value = urlCat; activeChip = urlCat;
+      chips.forEach(c => c.classList.toggle('active', c.dataset.filter === urlCat));
+    }
+
+    applyFilters();
+    initScrollReveal();
+  </script>
+</body>
+</html>
