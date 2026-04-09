@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="vi" data-base="./">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ngọc Phỉ Thúy | Jadeite Fine Jewelry — Trang Sức Ngọc Cao Cấp</title>
+  <meta name="description" content="Chuyên cung cấp Ngọc Phỉ Thúy Jadeite tự nhiên 100% — Nhập khẩu trực tiếp từ Myanmar & Vân Nam. Vòng tay, mặt dây chuyền, nhẫn, bông tai, lắc tay. Cam kết kiểm định uy tín." />
+  <meta name="keywords" content="ngọc phỉ thúy, jadeite, vòng ngọc phỉ thúy, nhẫn ngọc, bông tai ngọc, ngọc Myanmar" />
+  <meta property="og:title" content="Ngọc Phỉ Thúy | Jadeite Fine Jewelry" />
+  <meta property="og:description" content="Trang sức ngọc phỉ thúy jadeite tự nhiên loại A. Kiểm định, cam kết hoàn tiền." />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://ngocphithuy.vn/" />
+  <link rel="stylesheet" href="./assets/css/main.css" />
+  <style>
+    /* ── Home-specific styles ─── */
+    .hero { padding-top: 80px; }
+
+    /* Featured cats */
+    .cat-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+    .cat-card {
+      background: var(--bg-card); border: 1px solid var(--border-jade);
+      border-radius: var(--radius-md); padding: 28px 16px;
+      text-align: center; transition: var(--transition); cursor: pointer;
+    }
+    .cat-card:hover { border-color: var(--border-gold); transform: translateY(-5px); box-shadow: var(--shadow-gold); }
+    .cat-card-icon { font-size: 2.5rem; margin-bottom: 10px; display: block; }
+    .cat-card h4   { font-size: 0.85rem; color: var(--ivory); margin-bottom: 4px; }
+    .cat-card span { font-size: 0.7rem; color: var(--ivory-dim); }
+
+    /* Heritage banner */
+    .heritage { position: relative; overflow: hidden; }
+    .heritage-bg {
+      position: absolute; inset: 0;
+      background: url('./assets/images/story_bg.png') center/cover;
+      opacity: 0.18;
+    }
+    .heritage-content { position: relative; z-index: 1; }
+
+    /* Jade quality section */
+    .quality-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .quality-img  { border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border-gold); box-shadow: var(--shadow-gold); }
+    .quality-img img { width: 100%; aspect-ratio: 1/1; object-fit: cover; }
+
+    /* Marquee */
+    .marquee-wrap { overflow: hidden; border-top: 1px solid var(--border-jade); border-bottom: 1px solid var(--border-jade); padding: 14px 0; background: var(--bg-secondary); }
+    .marquee-track { display: flex; gap: 48px; animation: marquee 30s linear infinite; white-space: nowrap; }
+    .marquee-item  { display: inline-flex; align-items: center; gap: 10px; font-size: 0.78rem; color: var(--ivory-dim); letter-spacing: 0.08em; text-transform: uppercase; }
+    .marquee-item span { color: var(--gold); }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    @media (max-width: 768px) {
+      .cat-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+      .quality-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) { .cat-grid { grid-template-columns: repeat(2, 1fr); } }
+  </style>
+</head>
+<body>
+  <!-- Injected by JS: Cursor, Navbar -->
+
+  <!-- ── HERO ─────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge fade-up">
+          <span class="hero-badge-dot"></span>
+          Cam Kết 100% Ngọc Tự Nhiên Loại A
+        </div>
+        <h1 class="fade-up fade-up-delay-1">
+          Vẻ Đẹp Nghìn Năm<br/>
+          <span class="gradient-text">Ngọc Phỉ Thúy</span><br/>
+          Jadeite Myanmar
+        </h1>
+        <p class="fade-up fade-up-delay-2">
+          Từng viên ngọc là tác phẩm nghệ thuật của thiên nhiên — nhập khẩu trực tiếp từ mỏ Myanmar & Vân Nam Trung Quốc. Chúng tôi mang đến vẻ đẹp đích thực, đi kèm giấy kiểm định quốc tế.
+        </p>
+        <div class="hero-cta fade-up fade-up-delay-3">
+          <a href="./pages/products.html" class="btn btn-gold">💎 Khám Phá Sản Phẩm</a>
+          <a href="./pages/story.html"    class="btn btn-outline-gold">📖 Câu Chuyện Của Chúng Tôi</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll">Cuộn xuống <span></span></div>
+  </section>
+
+  <!-- ── MARQUEE ────────────────────────────────── -->
+  <div class="marquee-wrap">
+    <div class="marquee-track" id="marqueeTrack"></div>
+  </div>
+
+  <!-- ── STATS ──────────────────────────────────── -->
+  <section class="section-sm" style="background: var(--bg-secondary);">
+    <div class="container">
+      <div class="stats-bar reveal">
+        <div class="stat-item">
+          <div class="stat-num" data-count="500" data-suffix="+">500+</div>
+          <div class="stat-label">Sản Phẩm Ngọc</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num" data-count="15" data-suffix=" năm">15 năm</div>
+          <div class="stat-label">Kinh Nghiệm</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num" data-count="3000" data-suffix="+">3000+</div>
+          <div class="stat-label">Khách Hàng Tin Tưởng</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num" data-count="100" data-suffix="%">100%</div>
+          <div class="stat-label">Ngọc Tự Nhiên</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CATEGORIES ────────────────────────────── -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header center reveal">
+        <span class="section-label">Danh Mục Sản Phẩm</span>
+        <h2>Trang Sức <span class="gradient-text">Ngọc Phỉ Thúy</span></h2>
+        <div class="divider divider-center"></div>
+        <p>Khám phá từng dòng sản phẩm được chế tác tỉ mỉ từ những viên ngọc tự nhiên quý giá nhất.</p>
+      </div>
+      <div class="cat-grid">
+        <a href="./pages/products.html?cat=vong-tay" class="cat-card reveal shimmer-on-hover">
+          <span class="cat-card-icon">⭕</span>
+          <h4>Vòng Tay</h4>
+          <span>Kiểng · Bản Hẹ · Tròn</span>
+        </a>
+        <a href="./pages/products.html?cat=mat-day" class="cat-card reveal reveal-delay-1 shimmer-on-hover">
+          <span class="cat-card-icon">📿</span>
+          <h4>Mặt Dây Chuyền</h4>
+          <span>Quan Âm · Phật · Tỳ Hưu</span>
+        </a>
+        <a href="./pages/products.html?cat=nhan" class="cat-card reveal reveal-delay-2 shimmer-on-hover">
+          <span class="cat-card-icon">💍</span>
+          <h4>Nhẫn</h4>
+          <span>Oval · Flower · Couple</span>
+        </a>
+        <a href="./pages/products.html?cat=bong-tai" class="cat-card reveal reveal-delay-2 shimmer-on-hover">
+          <span class="cat-card-icon">✨</span>
+          <h4>Bông Tai</h4>
+          <span>Lệ · Tròn · Hoa</span>
+        </a>
+        <a href="./pages/products.html?cat=lac-tay" class="cat-card reveal reveal-delay-3 shimmer-on-hover">
+          <span class="cat-card-icon">🔮</span>
+          <h4>Lắc Tay</h4>
+          <span>Hạt · Vàng Khảm · Điêu</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FEATURED PRODUCTS ─────────────────────── -->
+  <section class="section" style="background: var(--bg-secondary);">
+    <div class="container">
+      <div class="section-header reveal" style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+        <div>
+          <span class="section-label">Nổi Bật</span>
+          <h2>Sản Phẩm <span class="gradient-text">Được Yêu Thích</span></h2>
+          <div class="divider"></div>
+        </div>
+        <a href="./pages/products.html" class="btn btn-outline-gold btn-sm">Xem Tất Cả →</a>
+      </div>
+      <div class="grid-products" id="featuredProducts"></div>
+    </div>
+  </section>
+
+  <!-- ── COLLECTIONS HIGHLIGHT ─────────────────── -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header center reveal">
+        <span class="section-label">Bộ Sưu Tập</span>
+        <h2>Trọn Bộ <span class="gradient-text">Trang Sức Ngọc</span></h2>
+        <div class="divider divider-center"></div>
+        <p>Mỗi bộ sưu tập được lựa chọn từ cùng một lô ngọc, đảm bảo sự đồng màu và hoàn hảo.</p>
+      </div>
+      <div class="grid-3" id="homeCollections"></div>
+    </div>
+  </section>
+
+  <!-- ── QUALITY / WHY US ───────────────────────── -->
+  <section class="section heritage">
+    <div class="heritage-bg"></div>
+    <div class="container heritage-content">
+      <div class="quality-grid">
+        <div>
+          <span class="section-label reveal">Cam Kết Của Chúng Tôi</span>
+          <h2 class="reveal reveal-delay-1">Vì Sao Chọn <span class="gradient-text">Ngọc Phỉ Thúy</span>?</h2>
+          <div class="divider reveal reveal-delay-1"></div>
+          <div style="display:flex;flex-direction:column;gap:16px;margin-top:24px;">
+            <div class="feature-item reveal reveal-delay-1">
+              <div class="feature-icon">🏆</div>
+              <div class="feature-body">
+                <h4>100% Ngọc Tự Nhiên Loại A</h4>
+                <p>Không qua xử lý hóa chất hay phủ nhựa. Mỗi sản phẩm đều đi kèm giấy kiểm định từ phòng lab uy tín.</p>
+              </div>
+            </div>
+            <div class="feature-item reveal reveal-delay-2">
+              <div class="feature-icon">✈️</div>
+              <div class="feature-body">
+                <h4>Nhập Khẩu Trực Tiếp Tại Nguồn</h4>
+                <p>Đội ngũ của chúng tôi trực tiếp thu mua tại mỏ Hpakant (Myanmar) và chợ ngọc Vân Nam — bỏ qua trung gian, tiết kiệm chi phí cho khách hàng.</p>
+              </div>
+            </div>
+            <div class="feature-item reveal reveal-delay-3">
+              <div class="feature-icon">🔬</div>
+              <div class="feature-body">
+                <h4>Kiểm Định & Bảo Lãnh Chất Lượng</h4>
+                <p>Toàn bộ ngọc cao cấp đều được kiểm định bởi phòng lab GIC, GIT hoặc tương đương. Cam kết hoàn tiền 100% nếu sai chất lượng.</p>
+              </div>
+            </div>
+            <div class="feature-item reveal reveal-delay-3">
+              <div class="feature-icon">📱</div>
+              <div class="feature-body">
+                <h4>Tư Vấn 1-1 Qua Video Call</h4>
+                <p>Không như ảnh chụp, chúng tôi sẵn sàng quay video trực tiếp sản phẩm dưới ánh sáng tự nhiên để bạn thấy màu sắc thật nhất.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="quality-img reveal reveal-delay-2">
+          <img src="./assets/images/prod_vong_xanh.png" alt="Vòng ngọc phỉ thúy loại A chính hãng" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── BLOG PREVIEW ───────────────────────────── -->
+  <section class="section" style="background: var(--bg-secondary);">
+    <div class="container">
+      <div class="section-header reveal" style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+        <div>
+          <span class="section-label">Kiến Thức</span>
+          <h2>Blog <span class="gradient-text">Ngọc Phỉ Thúy</span></h2>
+          <div class="divider"></div>
+        </div>
+        <a href="./pages/blog.html" class="btn btn-outline-gold btn-sm">Xem Tất Cả →</a>
+      </div>
+      <div class="grid-3" id="homeBlog"></div>
+    </div>
+  </section>
+
+  <!-- ── TESTIMONIALS ───────────────────────────── -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header center reveal">
+        <span class="section-label">Khách Hàng Nói Gì</span>
+        <h2>Đánh Giá <span class="gradient-text">Từ Khách VIP</span></h2>
+        <div class="divider divider-center"></div>
+      </div>
+      <div class="grid-3" id="testimonials"></div>
+    </div>
+  </section>
+
+  <!-- ── CTA BANNER ─────────────────────────────── -->
+  <section class="section-sm" style="background: linear-gradient(135deg, var(--jade-deep), var(--bg-secondary)); border-top: 1px solid var(--border-gold);">
+    <div class="container" style="text-align:center;">
+      <span class="section-label reveal">Liên Hệ Ngay</span>
+      <h2 class="reveal reveal-delay-1" style="max-width:600px;margin:0 auto 1rem;">Cần Tư Vấn Chọn Ngọc Phù Hợp Phong Thủy?</h2>
+      <p class="reveal reveal-delay-2" style="max-width:480px;margin:0 auto 2rem;">Đội ngũ chuyên gia của chúng tôi sẵn sàng hỗ trợ bạn 7 ngày/tuần. Tư vấn miễn phí, không ép mua.</p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;" class="reveal reveal-delay-3">
+        <a href="./pages/contact.html" class="btn btn-gold">💬 Liên Hệ Tư Vấn Ngay</a>
+        <a href="./pages/products.html" class="btn btn-outline-gold">💎 Xem Sản Phẩm</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER injected by JS ─────────────────── -->
+
+  <script src="./assets/js/main.js"></script>
+  <script>
+    // Render navbar & footer
+    renderNavbar(); renderFooter();
+
+    // Marquee
+    const items = ['💎 Ngọc Phỉ Thúy Jadeite', '✅ 100% Tự Nhiên Loại A', '🏆 Kiểm Định Uy Tín', '✈️ Nhập Khẩu Myanmar', '🔮 Phong Thủy Xác Thực', '💍 Chế Tác Tinh Xảo', '📞 Tư Vấn Miễn Phí', '🔄 Đổi Trả 30 Ngày'];
+    const track = document.getElementById('marqueeTrack');
+    const html  = [...items,...items].map(i => `<span class="marquee-item"><span>✦</span>${i}</span>`).join('');
+    track.innerHTML = html;
+
+    // Featured products (show 8 mixed)
+    const featured = JadeStore.PRODUCTS.filter(p => p.badges.length > 0).slice(0,8);
+    document.getElementById('featuredProducts').innerHTML = featured.map(p => productCard(p)).join('');
+
+    // Collections
+    document.getElementById('homeCollections').innerHTML = JadeStore.COLLECTIONS.map(c => collCard(c)).join('');
+
+    // Blog (3 latest)
+    document.getElementById('homeBlog').innerHTML = JadeStore.BLOGS.slice(0,3).map(b => blogCard(b)).join('');
+
+    // Testimonials
+    const testimonials = [
+      { name: 'Nguyễn Thị Thu Hà', role: 'Giám đốc công ty, TP.HCM', text: 'Mua vòng băng chủng loại A làm quà sinh nhật, chị bạn mang đi kiểm định lại thì đúng 100% như cam kết. Giá hợp lý, tư vấn tận tâm.', stars: 5, avatar: 'H' },
+      { name: 'Trần Văn Minh', role: 'Nhà sưu tầm ngọc, Hà Nội', text: 'Đã mua nhiều nơi nhưng chất lượng ở đây ổn định nhất. Đặc biệt anh chị tư vấn qua video call rất chi tiết, không cảm giác bị "bán hàng".', stars: 5, avatar: 'M' },
+      { name: 'Lê Ngọc Phương', role: 'KOL trang sức, Instagram', text: 'Vòng tử la lan mình mua về chụp ảnh ra màu đẹp hơn cả ngoài thực tế. Khách followers hỏi thăm địa chỉ nhiều lắm!', stars: 5, avatar: 'P' },
+    ];
+    document.getElementById('testimonials').innerHTML = testimonials.map(t => `
+      <div class="testimonial-card reveal">
+        <div class="stars">${'★'.repeat(t.stars)}</div>
+        <p class="testimonial-text">${t.text}</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">${t.avatar}</div>
+          <div><div class="testimonial-name">${t.name}</div><div class="testimonial-role">${t.role}</div></div>
+        </div>
+      </div>`).join('');
+
+    // Helper functions
+    function formatPrice(p) {
+      return '<span class="product-card-price">Liên hệ</span>';
+    }
+    function productCard(p) {
+      const badgeHtml = p.badges.map(b => `<span class="badge badge-${b}">${b==='loai-a'?'Loại A':b==='moi'?'Mới':'Hot'}</span>`).join('');
+      return `
+      <div class="product-card card reveal shimmer-on-hover" data-tilt>
+        <div class="product-card-img">
+          <img src="${p.img.replace('../', './')}" alt="${p.name} - Ngọc phỉ thúy ${p.color}" loading="lazy"/>
+          <div class="product-card-badges">${badgeHtml}</div>
+          <div class="product-card-overlay">
+            <a href="./pages/contact.html" class="btn btn-jade btn-sm">📞 Liên Hệ Mua</a>
+          </div>
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-cat">${p.catLabel} • ${p.color}</div>
+          <div class="product-card-name">${p.name}</div>
+          <div class="product-card-desc">${p.desc}</div>
+          <div class="product-card-footer" style="justify-content:center;">
+            <a href="./pages/contact.html" style="text-decoration:none;">${formatPrice(p.price)}</a>
+          </div>
+        </div>
+      </div>`;
+    }
+    function collCard(c) {
+      return `
+      <div class="collection-card reveal shimmer-on-hover">
+        <div class="collection-card-img"><img src="${c.img.replace('../', './')}" alt="${c.name}" loading="lazy"/></div>
+        <div class="collection-card-body">
+          <div class="product-card-cat">${c.color} • ${c.loai}</div>
+          <div class="collection-card-name">${c.name}</div>
+          <div class="collection-card-pieces">${c.pieces.map(p=>`<span class="collection-piece-tag">${p}</span>`).join('')}</div>
+          <p style="font-size:0.8rem;margin-bottom:14px;">${c.desc}</p>
+          <div style="display:flex;align-items:center;justify-content:center;">
+            <a href="./pages/collections.html" style="text-decoration:none;"><span class="product-card-price">Liên Hệ Xem Bộ</span></a>
+          </div>
+        </div>
+      </div>`;
+    }
+    function blogCard(b) {
+      return `
+      <div class="blog-card reveal">
+        <div class="blog-card-img"><img src="${b.img.replace('../', './')}" alt="${b.title}" loading="lazy"/></div>
+        <div class="blog-card-body">
+          <span class="blog-card-tag">${b.tag}</span>
+          <div class="blog-card-title">${b.title}</div>
+          <p class="blog-card-excerpt">${b.excerpt}</p>
+          <a href="./pages/blog.html" class="blog-card-link">Đọc tiếp →</a>
+        </div>
+      </div>`;
+    }
+
+    // Re-init tilt/reveal after dynamic content
+    setTimeout(() => { initScrollReveal(); initTilt(); }, 100);
+  </script>
+</body>
+</html>

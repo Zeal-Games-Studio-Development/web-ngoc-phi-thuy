@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="vi" data-base="../">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Liên Hệ Tư Vấn Ngọc Phỉ Thúy | Mua Tại Cửa Hàng — Jadeite Store</title>
+  <meta name="description" content="Liên hệ tư vấn mua ngọc phỉ thúy tại cửa hàng. Địa chỉ, số điện thoại, Zalo, email. Đội ngũ chuyên gia tư vấn 7 ngày/tuần, miễn phí, không ép mua." />
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <style>
+    .contact-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: start; }
+    .contact-methods { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 32px; }
+    .contact-method-card {
+      background: var(--bg-card); border: 1px solid var(--border-jade);
+      border-radius: var(--radius-md); padding: 22px; text-align: center;
+      transition: var(--transition);
+    }
+    .contact-method-card:hover { border-color: var(--border-gold); transform: translateY(-3px); }
+    .contact-method-icon { font-size: 2rem; margin-bottom: 10px; display: block; }
+    .contact-method-card h4 { font-size: 0.9rem; color: var(--ivory); margin-bottom: 6px; }
+    .contact-method-card a  { color: var(--gold); font-size: 0.85rem; }
+    .store-card { background: var(--bg-card); border: 1px solid var(--border-gold); border-radius: var(--radius-md); overflow: hidden; }
+    .store-img { height: 220px; background: linear-gradient(135deg, var(--jade-deep), var(--bg-secondary)); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 12px; }
+    .store-img img { width: 100%; height: 100%; object-fit: cover; }
+    .store-info { padding: 24px; }
+    .store-info-row { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px; font-size: 0.85rem; }
+    .store-info-icon { color: var(--gold); font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+    .store-info-text { color: var(--ivory-dim); }
+    .store-info-text strong { color: var(--ivory); display: block; }
+    .map-embed { width: 100%; height: 220px; border: 0; border-radius: 0; filter: hue-rotate(130deg) saturate(0.5) brightness(0.5); }
+    .hours-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
+    .hours-row { display: flex; justify-content: space-between; font-size: 0.8rem; padding: 6px 0; border-bottom: 1px solid var(--border-jade); }
+    .hours-row:last-child { border: none; }
+    .hours-row .day   { color: var(--ivory-dim); }
+    .hours-row .time  { color: var(--gold); font-weight: 500; }
+    .faq-item { background: var(--bg-card); border: 1px solid var(--border-jade); border-radius: var(--radius-sm); margin-bottom: 10px; overflow: hidden; }
+    .faq-q { padding: 16px 20px; cursor: pointer; font-size: 0.88rem; color: var(--ivory); display: flex; justify-content: space-between; align-items: center; }
+    .faq-q::after { content: '+'; color: var(--gold); font-size: 1.2rem; transition: transform 0.3s; }
+    .faq-item.open .faq-q::after { transform: rotate(45deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; padding: 0 20px; font-size: 0.82rem; color: var(--ivory-dim); }
+    .faq-item.open .faq-a { max-height: 200px; padding: 0 20px 16px; }
+    @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; } .contact-methods { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .contact-methods { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <div class="page-hero">
+    <div class="container">
+      <span class="section-label">Gặp Gỡ Chúng Tôi</span>
+      <h1>Liên Hệ <span class="gradient-text">& Tư Vấn</span></h1>
+      <div class="breadcrumb">
+        <a href="../index.html">Trang Chủ</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>Liên Hệ</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- NOTICE BAR -->
+  <div style="background: rgba(212,175,55,0.08); border-bottom: 1px solid var(--border-gold); padding: 14px 0;">
+    <div class="container" style="text-align:center;font-size:0.85rem;color:var(--ivory-dim);">
+      💎 <strong style="color:var(--gold)">Lưu ý:</strong> Chúng tôi <strong style="color:var(--ivory)">không bán hàng trực tuyến</strong> — mọi giao dịch thực hiện tại cửa hàng để đảm bảo bạn được xem ngọc trực tiếp. Hãy liên hệ đặt lịch trước!
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- LEFT: FORM + METHODS -->
+        <div>
+          <span class="section-label reveal">Liên Lạc</span>
+          <h2 class="reveal reveal-delay-1" style="margin-bottom:0.5rem;">Gửi Yêu Cầu <span class="gradient-text">Tư Vấn</span></h2>
+          <div class="divider reveal reveal-delay-1"></div>
+          <p class="reveal reveal-delay-2" style="margin-bottom:24px;">Điền thông tin bên dưới, chúng tôi sẽ phản hồi trong vòng 2 giờ (giờ hành chính). Tư vấn hoàn toàn miễn phí, không ép mua.</p>
+
+          <!-- Contact Methods -->
+          <div class="contact-methods reveal">
+            <a href="tel:0901234567" class="contact-method-card">
+              <span class="contact-method-icon">📞</span>
+              <h4>Điện Thoại</h4>
+              <a href="tel:0901234567">0901 234 567</a>
+            </a>
+            <a href="#" class="contact-method-card">
+              <span class="contact-method-icon">💬</span>
+              <h4>Zalo</h4>
+              <span style="color:var(--gold);font-size:0.85rem;">Chat ngay trên Zalo</span>
+            </a>
+            <a href="mailto:info@ngocphithuy.vn" class="contact-method-card">
+              <span class="contact-method-icon">📧</span>
+              <h4>Email</h4>
+              <a href="mailto:info@ngocphithuy.vn">info@ngocphithuy.vn</a>
+            </a>
+            <a href="#" class="contact-method-card">
+              <span class="contact-method-icon">📷</span>
+              <h4>Instagram</h4>
+              <span style="color:var(--gold);font-size:0.85rem;">@ngocphithuy.vn</span>
+            </a>
+          </div>
+
+          <!-- Form -->
+          <form id="contactForm" class="reveal reveal-delay-2">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+              <div class="form-group">
+                <label class="form-label" for="name">Họ & Tên *</label>
+                <input class="form-control" type="text" id="name" placeholder="Nguyễn Văn A" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="phone">Số Điện Thoại *</label>
+                <input class="form-control" type="tel" id="phone" placeholder="0901 234 567" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="email">Email</label>
+              <input class="form-control" type="email" id="email" placeholder="email@example.com" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="interest">Tôi Quan Tâm Đến</label>
+              <select class="form-control" id="interest">
+                <option>💍 Nhẫn ngọc phỉ thúy</option>
+                <option>⭕ Vòng tay ngọc phỉ thúy</option>
+                <option>📿 Mặt dây chuyền</option>
+                <option>✨ Bông tai ngọc</option>
+                <option>🔮 Lắc tay ngọc</option>
+                <option>✨ Bộ sưu tập trọn bộ</option>
+                <option>🔬 Định giá / Kiểm định ngọc</option>
+                <option>❓ Khác</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="budget">Ngân Sách Tham Khảo</label>
+              <select class="form-control" id="budget">
+                <option>Dưới 10 triệu</option>
+                <option>10 - 30 triệu</option>
+                <option>30 - 60 triệu</option>
+                <option>60 - 100 triệu</option>
+                <option>Trên 100 triệu</option>
+                <option>Chưa xác định</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="message">Tin Nhắn</label>
+              <textarea class="form-control" id="message" rows="4" placeholder="Mô tả nhu cầu của bạn, màu ngọc yêu thích, phong thủy mệnh..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center;">📩 Gửi Yêu Cầu Tư Vấn</button>
+          </form>
+        </div>
+
+        <!-- RIGHT: STORE INFO + MAP + HOURS -->
+        <div>
+          <div class="store-card reveal reveal-delay-1" style="margin-bottom:24px;">
+            <div class="store-img">
+              <img src="../assets/images/collection_bg.png" alt="Cửa hàng ngọc phỉ thúy" style="opacity:0.5;" />
+            </div>
+            <div class="store-info">
+              <h3 style="color:var(--ivory);margin-bottom:16px;font-size:1.1rem;">📍 Cửa Hàng Ngọc Phỉ Thúy</h3>
+              <div class="store-info-row">
+                <span class="store-info-icon">📍</span>
+                <div class="store-info-text"><strong>Địa Chỉ</strong>123 Đường Trang Sức, Phường Bến Nghé, Quận 1, TP. HCM</div>
+              </div>
+              <div class="store-info-row">
+                <span class="store-info-icon">📞</span>
+                <div class="store-info-text"><strong>Điện Thoại / Zalo</strong><a href="tel:0901234567" style="color:var(--gold);">0901 234 567</a></div>
+              </div>
+              <div class="store-info-row">
+                <span class="store-info-icon">📧</span>
+                <div class="store-info-text"><strong>Email</strong><a href="mailto:info@ngocphithuy.vn" style="color:var(--gold);">info@ngocphithuy.vn</a></div>
+              </div>
+              <div class="store-info-row">
+                <span class="store-info-icon">⚠️</span>
+                <div class="store-info-text" style="color:var(--gold);font-size:0.8rem;">Vui lòng <strong>đặt lịch hẹn trước</strong> để đảm bảo chuyên gia có mặt tư vấn bạn trực tiếp.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="store-card reveal reveal-delay-2">
+            <div class="store-info">
+              <h4 style="color:var(--ivory);margin-bottom:14px;">🕐 Giờ Hoạt Động</h4>
+              <div class="hours-grid">
+                <div><div class="hours-row"><span class="day">Thứ 2 - 6</span><span class="time">9:00 - 20:00</span></div><div class="hours-row"><span class="day">Thứ 7</span><span class="time">9:00 - 19:00</span></div><div class="hours-row" style="border:none"><span class="day">Chủ Nhật</span><span class="time">10:00 - 17:00</span></div></div>
+                <div style="background:rgba(212,175,55,0.05);border: 1px solid var(--border-gold);border-radius:var(--radius-sm);padding:12px;text-align:center;">
+                  <div style="font-size:0.7rem;color:var(--ivory-dim);margin-bottom:6px;">Mở cửa hôm nay</div>
+                  <div style="font-size:1.1rem;color:var(--jade-light);font-weight:600;">✅ 9:00 - 20:00</div>
+                  <div style="font-size:0.7rem;color:var(--ivory-dim);margin-top:4px;">Lễ: Theo thông báo</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" style="background:var(--bg-secondary);">
+    <div class="container">
+      <div class="section-header center reveal">
+        <span class="section-label">Hỏi & Đáp</span>
+        <h2>Câu Hỏi <span class="gradient-text">Thường Gặp</span></h2>
+        <div class="divider divider-center"></div>
+      </div>
+      <div style="max-width:800px;margin:0 auto;" id="faqList"></div>
+    </div>
+  </section>
+
+  <script src="../assets/js/main.js"></script>
+  <script>
+    renderNavbar(); renderFooter();
+
+    const faqs = [
+      { q: 'Tôi có thể mua ngọc trực tuyến không?', a: 'Chúng tôi không bán hàng trực tuyến vì ngọc là vật phẩm có giá trị cao và màu sắc rất khác nhau dưới từng nguồn ánh sáng. Chúng tôi khuyến khích khách hàng đến cửa hàng xem trực tiếp, hoặc chúng tôi có thể quay video call để bạn xem sản phẩm dưới ánh sáng tự nhiên trước khi đặt hẹn.' },
+      { q: 'Làm thế nào để tôi biết ngọc là loại A thật sự?', a: 'Tất cả sản phẩm ngọc loại A của chúng tôi đều đi kèm giấy kiểm định từ phòng lab uy tín (GIC, GIT hoặc tương đương). Nếu bạn muốn, chúng tôi có thể hỗ trợ bạn gửi ngọc đến phòng lab thứ 3 để tái kiểm định độc lập — chi phí do chúng tôi hỗ trợ cho đơn hàng trên 20 triệu.' },
+      { q: 'Tôi có thể đặt hẹn tư vấn trước không?', a: 'Chúng tôi khuyến khích mạnh việc đặt hẹn trước qua Zalo hoặc điện thoại, đặc biệt nếu bạn cần tư vấn theo phong thủy và mệnh, hoặc đang chọn ngọc cho bộ sưu tập. Điều này giúp chuyên gia của chúng tôi có thể chuẩn bị sẵn các lựa chọn phù hợp nhất cho bạn.' },
+      { q: 'Chính sách đổi trả như thế nào?', a: 'Chúng tôi cam kết hoàn tiền 100% trong vòng 30 ngày nếu sản phẩm không đúng với mô tả chất lượng và giấy kiểm định kèm theo. Với sản phẩm đặt chế tác theo yêu cầu, chúng tôi có thể chỉnh sửa kích thước và kiểu dáng miễn phí trong 30 ngày đầu.' },
+      { q: 'Ngọc phỉ thúy phù hợp với mệnh nào?', a: 'Ngọc màu xanh lục phù hợp mệnh Mộc và Thủy. Ngọc tím lavender phù hợp mệnh Hỏa. Ngọc trắng phù hợp mệnh Kim. Tuy nhiên mỗi người có ngũ hành tứ trụ khác nhau, cần xem xét kỹ để tư vấn chính xác — đây là điều chúng tôi làm miễn phí cho mỗi khách hàng.' },
+      { q: 'Có thể đặt hàng và nhận ship toàn quốc không?', a: 'Sau khi đã tư vấn và thống nhất sản phẩm tại cửa hàng (hoặc qua video call), chúng tôi có thể giao hàng toàn quốc bằng dịch vụ chuyển phát nhanh có bảo hiểm hàng hóa. Phí bảo hiểm được chúng tôi hỗ trợ cho đơn hàng từ 15 triệu trở lên.' },
+    ];
+
+    document.getElementById('faqList').innerHTML = faqs.map((f,i) => `
+      <div class="faq-item reveal" style="transition-delay:${i*0.05}s">
+        <div class="faq-q">${f.q}</div>
+        <div class="faq-a">${f.a}</div>
+      </div>`).join('');
+
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.querySelector('.faq-q').addEventListener('click', () => {
+        const wasOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(x => x.classList.remove('open'));
+        if (!wasOpen) item.classList.add('open');
+      });
+    });
+
+    document.getElementById('contactForm').addEventListener('submit', e => {
+      e.preventDefault();
+      showToast('✅', 'Đã nhận! Chúng tôi sẽ liên hệ bạn trong 2 giờ.');
+      e.target.reset();
+    });
+
+    initScrollReveal();
+  </script>
+</body>
+</html>
